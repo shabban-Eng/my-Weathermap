@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">تطبيق الطقس الشامل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-layout">
+
+        <aside class="news-sidebar">
+            <div class="news-header">
+                <h3><i class="fa-solid fa-satellite-dish"></i> <span id="newsHeaderTitle">رصد أخبار الطقس والكوارث
+                        عالمياً</span></h3>
+                <span class="live-dot" aria-hidden="true"></span>
+            </div>
+            <div class="news-container" id="newsContainer">
+                <p class="loading-news" id="loadingNewsText">جاري جلب أحدث الأخبار...</p>
+            </div>
+        </aside>
+
+        <main class="weather-card">
+
+            <div class="instrument-header">
+                <div class="brand-mark">
+                    <i class="fa-solid fa-cloud-bolt"></i>
+                    <span id="brandLabel">مقياس</span>
+                </div>
+                <div class="datetime-box">
+                    <span id="currentDate">--/--/----</span>
+                    <span id="currentTime">--:--:--</span>
+                </div>
+                <div class="toolbar-actions">
+                    <button id="langToggleBtn" class="control-btn"><i class="fa-solid fa-globe"></i> English</button>
+                    <button id="themeToggleBtn" class="control-btn"><i class="fa-solid fa-moon"></i></button>
+                </div>
+            </div>
+
+            <div class="search-box-container" id="searchBoxContainer">
+                <div class="search-icon-wrapper">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="search-input-wrapper">
+                    <span class="box-label" id="searchLabel">الدولة أو المدينة</span>
+                    <input type="text" id="citySearchInput" placeholder="اختر أو ابحث عن دولة...">
+                </div>
+                <i class="fa-solid fa-chevron-down search-caret"></i>
+                <div class="dropdown-list" id="dropdownList"></div>
+            </div>
+
+            <div class="error" id="errorMsg">حدث خطأ أثناء جلب بيانات الطقس.</div>
+
+            <div class="weather-info" id="weatherInfo">
+                <div class="reading-primary">
+                    <div class="weather-icon" id="weatherIcon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div class="reading-main">
+                        <div class="temp" id="temp">--°C</div>
+                        <div class="city" id="cityName">جاري تحديد موقعك...</div>
+                        <div class="description" id="description">--</div>
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="col">
+                        <i class="fa-solid fa-water"></i>
+                        <div>
+                            <span id="humidity">--%</span>
+                            <p id="humidityLabel">الرطوبة</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <i class="fa-solid fa-wind"></i>
+                        <div>
+                            <span id="wind">-- كم/س</span>
+                            <p id="windLabel">الرياح</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <h3 id="forecastTitle">توقعات الأيام القادمة</h3>
+                <div class="forecast-container" id="forecastContainer"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- نافذة المخطط البياني السلس (Modal) -->
+    <div class="chart-modal-overlay" id="chartModalOverlay">
+        <div class="chart-modal-card">
+            <div class="chart-modal-header">
+                <h3 id="chartModalTitle">توقعات 24 ساعة</h3>
+                <button class="close-modal-btn" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chart-container">
+                <canvas id="weatherDetailChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- عنصر ترجمة جوجل -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
