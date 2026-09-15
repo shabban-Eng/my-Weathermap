@@ -786,3 +786,43 @@ body.light-mode .news-sidebar {
     background-color: var(--amber);
     /* لون الخط الأصفر العلوي */
 }
+
+/* حاوية الصفحة بالكامل لترتيب العناصر عمودياً */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
+    /* يدفع الحقوق لأسفل الشاشة تماماً */
+}
+
+/* تنسيق حقوق النشر لتكون في المنتصف وتحت التطبيق */
+.footer-rights {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    color: #888;
+    /* لون خفيف مناسب للتصميم */
+    font-size: 14px;
+}
+
+/* جعل الحقوق تأخذ سطراً كاملاً منفصلاً في الأسفل وتحت التطبيق تماماً */
+.footer-rights {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    /* مسافة فاصلة بين نهاية التطبيق وعبارة الحقوق */
+    grid-column: 1 / -1;
+    /* إذا كانت الصفحة تعمل بنظام الـ CSS Grid */
+    clear: both;
+}
+
+/* التأكد من أن الحاوية العامة تسمح بترتيب العناصر عمودياً عند الحاجة */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
